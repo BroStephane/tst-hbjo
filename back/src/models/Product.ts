@@ -17,3 +17,4 @@ export const updateProductQuantity = async (productId: number, newQuantity: numb
     const db = await initializeDatabase();
     await db.run('UPDATE products SET quantityInStock = ? WHERE id = ?', [newQuantity, productId]);
 };
+
