@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import StockManager from './components/StockManager';
 import BrandViewer from './components/BrandViewer';
+import './App.css';
+
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('stock');

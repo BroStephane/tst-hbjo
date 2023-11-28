@@ -49,7 +49,7 @@ const StockManager = () => {
                                 />
                             </td>
                             <td>
-                                <button onClick={() => handleStockChange(product.id, product.stock)}>
+                                <button className="modifier-btn" onClick={() => handleStockChange(product.id, product.stock)}>
                                     Mettre à jour
                                 </button>
                             </td>
