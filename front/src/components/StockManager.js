@@ -1,48 +1,58 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios'; // Décommentez si vous utilisez axios
+import axios from 'axios';
 
 const StockManager = () => {
-    const [stockData, setStockData] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        // Fonction pour charger les données du stock
-        const loadStockData = async () => {
-            try {
-                // Utilisation de fetch
-                const response = await fetch('/api/products');
-                const data = await response.json();
-                setStockData(data);
-
-                // Ou utilisez axios
-                // const { data } = await axios.get('/api/products');
-                // setStockData(data);
-            } catch (error) {
-                console.error("Erreur lors du chargement des données du stock", error);
-            }
-        };
-
-        loadStockData();
+        axios.get('http://localhost:3000/api/products')
+            .then(response => {
+                setProducts(response.data);
+            })
+            .catch(error => console.error('Erreur lors du chargement des produits', error));
     }, []);
+
+    const handleStockChange = (id, newStock) => {
+        axios.put(`http://localhost:3000/api/products/${id}`, { stock: newStock })
+            .then(() => {
+                setProducts(products.map(product =>
+                    product.id === id ? { ...product, stock: newStock } : product
+                ));
+            })
+            .catch(error => console.error('Erreur lors de la mise à jour du stock', error));
+    };
 
     return (
         <div>
             <h2>Gérer le Stock</h2>
             <table>
-                {/* Entêtes du tableau */}
                 <thead>
                     <tr>
                         <th>Nom</th>
+                        <th>Marque</th>
                         <th>Prix</th>
-                        {/* Autres entêtes... */}
+                        <th>Stock</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                {/* Données du tableau */}
                 <tbody>
-                    {stockData.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.name}</td>
-                            <td>{item.price}</td>
-                            {/* Autres données... */}
+                    {products.map(product => (
+                        <tr key={product.id}>
+                            <td>{product.name}</td>
+                            <td>{product.brandName}</td> {/* Ajout de la colonne Marque */}
+                            <td>{product.price}</td>
+                            <td>
+                                <input
+                                    type="number"
+                                    value={product.stock}
+                                    onChange={(e) => handleStockChange(product.id, e.target.value)}
+                                />
+                            </td>
+                            <td>
+                                <button onClick={() => handleStockChange(product.id, product.stock)}>
+                                    Mettre à jour
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

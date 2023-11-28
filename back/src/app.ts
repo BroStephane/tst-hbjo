@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { initializeDatabase } from './database';
 import productRoutes from './routes/productRoutes';
 import brandRoutes from './routes/brandRoutes';
@@ -13,6 +14,10 @@ initializeDatabase().then(() => {
 
 app.use(express.json());
 const port = 3000; // Vous pouvez choisir un autre port si nécessaire
+app.use(cors({
+    origin: 'http://localhost:3001' // L'URL de votre front-end
+}));
+
 
 
 app.use('/api', productRoutes);

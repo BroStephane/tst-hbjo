@@ -9,7 +9,7 @@ const getAllProducts = async () => {
 exports.getAllProducts = getAllProducts;
 const updateProductQuantity = async (productId, newQuantity) => {
     const db = await (0, database_1.initializeDatabase)();
-    await db.run('UPDATE products SET quantityInStock = ? WHERE id = ?', [newQuantity, productId]);
+    await db.run('UPDATE products SET stock = ? WHERE id = ?', [newQuantity, productId]);
 };
 exports.updateProductQuantity = updateProductQuantity;
 //# sourceMappingURL=Product.js.map

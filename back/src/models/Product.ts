@@ -15,6 +15,6 @@ export const getAllProducts = async (): Promise<Product[]> => {
 
 export const updateProductQuantity = async (productId: number, newQuantity: number): Promise<void> => {
     const db = await initializeDatabase();
-    await db.run('UPDATE products SET quantityInStock = ? WHERE id = ?', [newQuantity, productId]);
+    await db.run('UPDATE products SET stock = ? WHERE id = ?', [newQuantity, productId]);
 };
 

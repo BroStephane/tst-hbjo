@@ -15,11 +15,12 @@ exports.getProducts = getProducts;
 const updateProductStock = async (req, res) => {
     try {
         const productId = parseInt(req.params.id);
-        const { quantity } = req.body;
-        await (0, Product_1.updateProductQuantity)(productId, quantity);
+        const { stock } = req.body;
+        await (0, Product_1.updateProductQuantity)(productId, stock);
         res.status(200).send('Quantité du produit mise à jour');
     }
     catch (error) {
+        console.error(error);
         res.status(500).send("Erreur lors de la mise à jour de la quantité du produit");
     }
 };
