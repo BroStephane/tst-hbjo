@@ -4,7 +4,7 @@ exports.updateProductQuantity = exports.getAllProducts = void 0;
 const database_1 = require("../database");
 const getAllProducts = async () => {
     const db = await (0, database_1.initializeDatabase)();
-    return db.all('SELECT * FROM products');
+    return db.all('SELECT products.*, brands.name as brandName FROM products JOIN brands ON products.brandId = brands.id');
 };
 exports.getAllProducts = getAllProducts;
 const updateProductQuantity = async (productId, newQuantity) => {

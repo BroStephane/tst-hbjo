@@ -10,7 +10,7 @@ import { initializeDatabase } from '../database';
 
 export const getAllProducts = async (): Promise<Product[]> => {
     const db = await initializeDatabase();
-    return db.all('SELECT * FROM products');
+    return db.all('SELECT products.*, brands.name as brandName FROM products JOIN brands ON products.brandId = brands.id');
 };
 
 export const updateProductQuantity = async (productId: number, newQuantity: number): Promise<void> => {
