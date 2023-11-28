@@ -1,0 +1,45 @@
+{
+    "compilerOptions": {
+        /* Options de Base */
+        "target": "es2019", // Spécifie la version cible d'ECMAScript
+        "module": "commonjs", // Spécifie la génération du code de module
+        "rootDir": "./src", // Spécifie le répertoire racine des fichiers sources
+        "outDir": "./dist", // Spécifie le répertoire de sortie pour les fichiers compilés
+        "esModuleInterop": true, // Active l'interopérabilité entre CommonJS et les modules ES
+        "forceConsistentCasingInFileNames": true, // Interdit les références incohérentes à un même fichier
+        /* Options Strictes de Vérification de Type */
+        "strict": true, // Active toutes les options strictes de vérification de type
+        "noImplicitAny": true, // Signale une erreur pour les expressions et déclarations avec un type 'any' implicite
+        "strictNullChecks": true, // Active les vérifications strictes de null
+        "strictFunctionTypes": true, // Active la vérification stricte des types de fonction
+        "strictBindCallApply": true, // Active les méthodes strictes 'bind', 'call' et 'apply' sur les fonctions
+        "strictPropertyInitialization": true, // Assure que les propriétés non-undefined des classes sont initialisées dans le constructeur
+        "noImplicitThis": true, // Signale une erreur pour les expressions 'this' avec un type 'any' implicite
+        "alwaysStrict": true, // Analyse en mode strict et émet "use strict" pour chaque fichier source
+        /* Vérifications Additionnelles */
+        "noUnusedLocals": true, // Signale les erreurs sur les variables locales non utilisées
+        "noUnusedParameters": true, // Signale les erreurs sur les paramètres non utilisés
+        "noImplicitReturns": true, // Signale une erreur lorsque tous les chemins de code dans une fonction ne retournent pas de valeur
+        "noFallthroughCasesInSwitch": true, // Signale les erreurs pour les cas de passage dans les instructions switch
+        /* Options de Résolution de Module */
+        "moduleResolution": "node", // Choisissez la stratégie de résolution de module
+        "baseUrl": "./", // Répertoire de base pour résoudre les noms de modules non relatifs
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        }, // Une série d'entrées qui remappent les importations à des emplacements de recherche relatifs à 'baseUrl'
+        /* Options de Carte Source */
+        "sourceMap": true, // Génère le fichier '.map' correspondant
+        /* Options Expérimentales */
+        "experimentalDecorators": true, // Active le support expérimental pour les décorateurs ES7
+        "emitDecoratorMetadata": true // Active le support expérimental pour l'émission de métadonnées de type pour les décorateurs
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
