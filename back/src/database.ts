@@ -7,7 +7,7 @@ sqlite3.verbose();
 
 const connect = async () => {
   return open({
-    filename: 'back/data/database.sqlite',
+    filename: 'data/database.sqlite',
     driver: sqlite3.Database
   });
 };

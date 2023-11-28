@@ -11,7 +11,7 @@ const sqlite_1 = require("sqlite");
 sqlite3_1.default.verbose();
 const connect = async () => {
     return (0, sqlite_1.open)({
-        filename: 'back/data/database.sqlite',
+        filename: 'data/database.sqlite',
         driver: sqlite3_1.default.Database
     });
 };

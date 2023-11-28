@@ -1,6 +1,5 @@
 import express from 'express';
 import { initializeDatabase } from './database';
-import { splitCsvData } from './scripts/splitCsvData';
 import productRoutes from './routes/productRoutes';
 import brandRoutes from './routes/brandRoutes';
 
@@ -10,10 +9,6 @@ const app = express();
 initializeDatabase().then(() => {
     console.log("Base de données initialisée");
 
-    // Exécution du script de séparation des données CSV
-    splitCsvData().then(() => {
-        console.log("Données CSV séparées");
-    });
 });
 
 app.use(express.json());

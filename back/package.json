@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
-    "build": "tsc",
-    "split-csv": "node src/scripts/splitCsvData.js"
+    "build": "tsc && cp src/scripts/splitCsvData.js dist/scripts/splitCsvData.js",
+    "run-split": "node src/scripts/splitCsvData.js"
   },
   "keywords": [],
   "author": "",
