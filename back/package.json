@@ -7,12 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "split-csv": "node src/scripts/splitCsvData.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
     "express": "^4.18.2",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.6"
